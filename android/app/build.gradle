@@ -1,0 +1,52 @@
+plugins {
+    id "com.android.application"
+    // START: FlutterFire Configuration
+    id 'com.google.gms.google-services'
+    // END: FlutterFire Configuration
+    id "kotlin-android"
+    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    compileSdkVersion 31
+
+    defaultConfig {
+        applicationId "com.example.my_app"
+        minSdkVersion 23
+        targetSdkVersion 33
+        // Manually define versionCode and versionName
+    versionCode 1  // Increment this number with each release
+    versionName "1.0.0"  // Your app version, change this accordingly
+        // other configurations
+     // Enable BuildConfig
+        buildConfigField "String", "CUSTOM_FIELD", '"value"'
+
+    // other configurations...
+}
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+
+
+    }
+
+    // Enable buildConfig feature here
+    buildFeatures {
+        // Enable the features you need, such as ViewBinding or BuildConfig
+        viewBinding true  // Example: enabling ViewBinding
+        buildConfig true  // Enable the BuildConfig feature
+    }
+
+    buildTypes {
+        release {
+            signingConfig = signingConfigs.debug
+        }
+    }
+
+
+flutter {
+    source = "../.."
+}
